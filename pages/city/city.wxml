@@ -1,0 +1,29 @@
+<view class='city'>
+  <view class='city_title'>城市</view>
+  <view class='city_content'>
+    <view class='content_title'>定位城市</view>
+    <view class='city_header'>
+        <view class='default_city' bindtap='jumpCity'>
+          <image class='houseSelectImg' src='/img/HouseTypeMenu.png'></image>
+          {{defaultCity}}
+        </view>
+        <view class='location' bindtap='getLoaction'>
+          <!-- <view class=''> -->
+             <image src='/img/again.png' class="refresh"></image>
+          <!-- </view> -->
+          <view class='again'>重新定位</view>
+        </view>
+    </view>
+<!-- <view class="rgc_info"> 
+  <text>{{rgcData.address}}</text> 
+  <text>{{rgcData.desc}}</text> 
+  <text>{{rgcData.business}}</text> 
+</view> -->
+    <view class='wrapper'>
+      <list-html data="{{cityList}}" bind:detail="binddetail" config="{{config}}"></list-html>
+  </view>
+  </view>
+
+
+  
+</view>

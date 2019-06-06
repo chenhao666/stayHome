@@ -1,0 +1,166 @@
+/* page{
+  background-color: #f7f8fa;
+} */
+.my_order{
+
+}
+.my_order_title{
+  font-size:64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:64rpx;
+  padding: 0 40rpx;
+}
+.orderList{
+  width: 100%;
+}
+.item_list{
+  background-color: #ffffff;
+  /* height: 569rpx; */
+  width: 670rpx;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+  border-radius:10rpx;
+  margin: 54rpx 40rpx 0 40rpx;
+  padding-bottom: 40rpx;
+}
+.time{
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(182,182,182,1);
+  line-height:24rpx;
+  float: right;
+}
+.status{
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(228,120,114,1);
+  line-height:36rpx;
+  float: left;
+}
+.first-floor{
+  padding: 39rpx 40rpx 0 40rpx;
+  overflow: hidden;
+}
+.imgList{
+  height: 150rpx;
+  margin: 46rpx 40rpx 40rpx 40rpx;
+  overflow: hidden;
+}
+.img{
+  display: block;
+  width: 180rpx;
+  height: 150rpx;
+  float: left;
+  text-align: center;
+  box-sizing: border-box;
+}
+.imgList .img:not(:first-child){
+  margin-left: 19rpx;
+}
+.img image{
+  border: 1rpx solid #F2F2F2;
+  width: 180rpx;
+  height: 150rpx;
+  vertical-align: middle;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+}
+.message{
+  color: #3B3B3B;
+  font-size: 26rpx;
+  height: 28rpx;
+  line-height: 28rpx
+}
+.total_price{
+  float: right;
+  margin-right: 40rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:24rpx;
+}
+.total_num{
+  float: left;
+  margin-left: 40rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  line-height:24rpx;
+}
+.goDetail{
+  text-align: right
+}
+.go_detail{
+  width:180rpx;
+  height:80rpx;
+  background:rgba(25,25,25,1);
+  border-radius:6rpx;
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(255,254,254,1);
+  line-height:80rpx;
+  text-align: center;
+  margin: 49rpx 40rpx 0 0;
+  display: inline-block
+}
+.imgList_br{
+  width:590rpx;
+  height:2rpx;
+  background-color: rgba(234,240,240,1);
+  margin:40rpx;
+}
+.payment{
+  float: right;
+  width: 120rpx;
+  margin-top: 29rpx;
+  margin-right: 29rpx;
+  text-align: center;
+  line-height: 50rpx;
+  border-radius: 5rpx;
+  background: linear-gradient(to right, #F2CD0B, #F2AE0B);
+}
+.payment .gopay{
+  color: #ffffff;
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  font-size: 24rpx;
+}
+.total{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+}
+.price{
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+}
+.status1{
+  color: #3f3f3f;
+}
+.status0{
+  color: #FF4835;
+}
+.status7{
+  color: #787878;
+}
+.no_address{
+  text-align: center;
+  margin-top: 327rpx;
+}
+.no_address image{
+  width: 153rpx;
+  height: 114rpx;
+}
+.no_address view{
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  line-height:30rpx;
+  margin-top: 32rpx;
+}

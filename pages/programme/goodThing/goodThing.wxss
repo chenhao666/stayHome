@@ -1,0 +1,275 @@
+.good_title{
+  padding: 0 40rpx;
+  font-size:64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  line-height:64rpx;
+  opacity:0.9;
+}
+.first_title{
+  padding: 36rpx 0 31rpx 40rpx;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(52,52,52,1);
+  line-height:36rpx;
+}
+swiper{
+  height: 600rpx;
+}
+.good_item{
+  text-align: center;
+  font-size: 0;
+}
+.good_top{
+  width: 92rpx;
+  height: 49rpx;
+}
+.good_warpper{
+  position: relative;
+  height:400rpx;
+}
+.good_floor_img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:580rpx;
+  height:400rpx;
+}
+.good_floor{
+  width:540rpx;
+  height:360rpx;
+  /* border: 20rpx solid #376963; */
+  border-radius:200rpx 10rpx 10rpx 10rpx;
+  /* box-sizing: border-box; */
+  background-color: #fff;
+}
+.good_item_title{
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:34rpx;
+  margin-top: 39rpx;
+}
+.good_item_price{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:24rpx;
+  margin: 29rpx 0 49rpx 0;
+}
+/*用来包裹所有的小圆点  */
+
+.dots {
+  width: 100%;
+  height: 10rpx;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: -100rpx;
+  position: absolute;
+  right: 20rpx;
+}
+/* 未选中时，指示点的样式 */
+
+.dot {
+  width: 10rpx;
+  height: 10rpx;
+  background: #999;
+  margin: 0 8rpx;
+}
+
+/* 选中时，指示点的样式 */
+
+.active {
+  width: 20rpx;
+  height: 10rpx;
+  background-color: #000;
+}
+.good_swiper{
+  border-bottom: 2rpx solid rgba(234,240,240,1);
+}
+.second_title{
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  line-height:36rpx;
+  padding: 50rpx 0 50rpx 40rpx;
+}
+
+.xin {
+  padding: 0 20px;
+}
+
+.xin .title {
+  font-size: 14px;
+  color: #444;
+}
+
+.xin .border {
+  height: 0;
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  width: 20%;
+}
+
+.xin-list {
+  width: 100%;
+  height: 425rpx;
+  position: relative;
+}
+
+.xin-list .single:nth-of-type(1) {
+  z-index: 10;
+}
+
+.xin-list .single:nth-of-type(n+4) {
+  transform: translateX(40px) scale(0.6);
+  transform-origin: 100% 50% 0;
+}
+
+.xin-list .single {
+  width: 640rpx;
+  height: 425rpx;
+  background: rgba(0, 0, 0, 1);
+  opacity: 0.1;
+  border-radius: 10px;
+  transition: all 0.5s;
+  overflow: hidden;
+  background: #fff;
+  position: absolute;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.list_title{
+  position: absolute;
+  bottom: 65rpx;
+  left: 29rpx;
+  font-size:32rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(255,255,255,1);
+  line-height:32rpx;
+  opacity:0.9;
+}
+.list_content{
+  position: absolute;
+  bottom: 28rpx;
+  left: 29rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  line-height:24rpx;
+  opacity:0.9;
+  overflow: hidden;
+  width: 569rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.xin-shou {
+  writing-mode: vertical-lr;
+  font-size: 15px;
+  float: left;
+  padding: 10px 2px 10px 2px;
+  letter-spacing: 4px;
+  margin: 0 15px;
+  position: relative;
+  top: 50%;
+  max-height: 80%;
+  overflow: hidden;
+  transform: translateY(-50%);
+  border: 1px solid #999;
+}
+
+.xin-body {
+  text-indent: 2em;
+  letter-spacing: 0.2em;
+  writing-mode: vertical-lr;
+  max-width: 40vw;
+  line-height: 8vw;
+  overflow: hidden;
+  float: left;
+  height: 70%;
+  vertical-align: middle;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: justify;
+}
+.houseType_img{
+  width: 100%;
+  height: 425rpx;
+}
+.houseType_shade{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 425rpx;
+}
+.xin_content{
+  width: 670rpx;
+  padding: 0 40rpx;
+}
+.xin_title{
+  float: left;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:36rpx;
+}
+.xin_first{
+  margin-top: 30rpx;
+  margin-bottom: 19rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 36rpx;
+  line-height: 36rpx;
+}
+.xin_price{
+  float: right;
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:28rpx;
+}
+.xin_sub_title{
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(107,107,107,1);
+  line-height:24rpx;
+}
+.second_content:first-child{
+  margin-top: 50rpx;
+}
+.second .second_content:not(:nth-child(2)){
+  margin-top: 69rpx;
+}
+.xin-list .oneStyle{
+  width: 670rpx;
+}
+.leadPage{
+  text-align: center;
+  margin-top: 274rpx;
+}
+.leadPage image{
+  width: 162rpx;
+  height: 123rpx;
+}
+.leadPage .leadContent{
+  margin-top: 31rpx;
+  font-size:30rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  line-height:60rpx;
+}
+

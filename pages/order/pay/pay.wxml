@@ -1,0 +1,47 @@
+<view class='container'>
+  <view class='title'>支付订单</view>
+
+  <!--支付详情-->
+  <view class='payInfo'>
+    <view class='price'><text>￥</text>{{ price }}</view>
+    <view class='number'>订单编号：{{ orderNum }}</view>
+    <image src='/img/payImg.png'></image>
+  </view>
+  <!--圆-->
+  <view class='circle'>
+    <view class='left'></view>
+    <view class='right'></view>
+    <view class='circle_line'></view>
+  </view>
+
+  <!--选择支付方式-->
+  <view class='selectPay'>
+    <view class='select_title'>请选择付款方式</view>
+    <view class='selectList'>
+      <view class='item' bindtap='changePay' data-index='0'>
+        <image class='ico' src='/img/wxIco.png'></image>
+        <text>微信支付</text>
+        <image class='checkIco' src='/img/check_select.png' hidden='{{ checkIndex!=0 }}'></image>
+        <view class='clear'></view>
+      </view>
+      <view class='item' bindtap='changePay' data-index='1' style='border-bottom:none' wx:if='{{ price>5000 }}'>
+        <image class='ico' src='/img/muiltPay.png'></image>
+        <text>分多次支付</text>
+        <image class='checkIco' src='/img/check_select.png' hidden='{{ checkIndex!=1 }}'></image>
+        <view class='clear'></view>
+      </view>
+    </view>
+  </view>
+
+  <!--圆-->
+  <view class='circle'>
+    <view class='left'></view>
+    <view class='right'></view>
+    <view class='circle_line'></view>
+  </view>
+
+  <!--确认支付-->
+  <view class='btn'>
+    <button bindtap='goPay' class='goPay'>确认支付</button>
+  </view>
+</view>

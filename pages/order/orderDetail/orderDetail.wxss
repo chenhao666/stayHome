@@ -1,0 +1,369 @@
+page{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx;
+  padding-top: 0rpx;
+}
+.bookImg{
+  position: absolute;
+  top: 50rpx;
+  right: 40rpx;
+  width:36rpx;
+  height:36rpx;
+}
+.title{
+  width: 100%;
+  font-size:64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-top: 20rpx;
+}
+.orderInfo{
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 40rpx;
+}
+.addressEmpty text{
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.addAddress{
+  width: 100%;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.addAddress image{
+  float: right;
+  width:20rpx;
+  height:30rpx;
+  margin-top: 22rpx;
+}
+.addAddress::after{
+  content:'';
+  clear: both;
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+  background:rgba(234,240,240,1);
+}
+.orderInfo .top{
+  width: 100%;
+  padding: 40rpx;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.readBook {
+  margin-top: 34rpx;
+}
+.readBook image{
+  display: block;
+  float: left;
+  width: 36rpx;
+  height: 36rpx;
+}
+.readBook text{
+  margin-left: 24rpx;
+  display: block;
+  float: left;
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(52,52,52,1);
+}
+.circle{
+  background: #ffffff;
+  width: 100%;
+  height: 80rpx;
+  position: relative;
+  overflow: hidden;
+}
+.circle .left{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  top: 0rpx;
+  left: -40rpx;
+  background: #ffffff;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24) inset;
+}
+.circle .right{
+  background: #ffffff;
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  top: 0rpx;
+  right: -40rpx;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24) inset;
+}
+.circle_line{
+  width: 100%;
+  height:0rpx;
+  border-top:2rpx dashed rgba(234,240,240,1);
+  margin-top: 40rpx;
+}
+.productList{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.productList .box{
+  margin-top: 40rpx;
+}
+.productList .box:first-child{
+  margin-top: 0rpx;
+}
+.location{
+  width: 100%;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(52,52,52,1);
+}
+
+.box .productItem{
+  width: 100%;
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.productList .box .imageBox{
+  position: relative;
+  width:180rpx;
+  height:150rpx;
+  border-radius:10rpx;
+}
+.productImgMask{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 90;
+  width: 180rpx;
+  height: 150rpx;
+  background:rgba(68,68,68,1);
+  opacity:0.06;
+  border-radius:10rpx;
+}
+.productItem image{
+  width:180rpx;
+  height:150rpx;
+}
+.productItem .info{
+  width: 380rpx;
+  margin-left: 30rpx;
+  flex-grow:1;
+}
+.productItem .info_box{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.productNum{
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.productItem .info .name{
+  width: 200rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.productItem .info .price{
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.info_box.attr view:first-child{
+  width: 300rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.attr{
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  margin-top: 7rpx;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.attr:first-child{
+  margin-top: 20rpx;
+}
+.box .line{
+  margin-top: 50rpx;
+}
+.bottom{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.totalPrice{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(52,52,52,1);
+}
+.totalPrice text:last-child{
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.del{
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.finallyPrice{
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  font-size:40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-top: 30rpx;
+}
+.btn{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.btn .item{
+  font-size:26rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  margin-top: 50rpx;
+  color:rgba(25,25,25,1);
+}
+.btn button{
+  width:180rpx;
+  height:80rpx;
+  margin-top: 50rpx;
+  line-height: 80rpx;
+  border-radius:6rpx;
+  margin-right: 0;
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  background:rgba(215,220,219,1);
+  color:rgba(255,254,254,1);
+}
+.btn .goPay{
+  background:rgba(25,25,25,1);
+}
+.bottom_img{
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  overflow: hidden;
+  background: linear-gradient(rgba(84,96,95,0.07), rgba(84,96,95,0.01)); /* 标准的语法 */
+}
+.bottom_img image{
+  display: block;
+  width: 100%;
+  height: 30rpx;
+}
+.addressInfo{
+  position: relative;
+  padding-bottom: 40rpx;
+}
+.addressInfo .userName{
+  width: 100%;
+  font-size:32rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.addressInfo  .address{
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  width: 500rpx;
+  color:rgba(107,107,107,1);
+  margin-top: 36rpx;
+}
+.addressInfo  .address image{
+  position: absolute;
+  width:20rpx;
+  height:30rpx;
+  top:84rpx;
+  right: 0rpx;
+}
+.state{
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-top: 20rpx;
+  display: inline-block;
+}
+.mark{
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:26rpx;
+  display: inline-block;
+  margin-left: 26rpx;
+}
+.orderNum{
+  position: relative;
+  width: 100%;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  margin-top: 20rpx;
+}
+.orderNum text{
+  float: left;
+}
+.orderNum image{
+  float: left;
+  margin-left: 20rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.order_status{
+  width: 100%;
+}

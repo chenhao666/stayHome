@@ -1,0 +1,143 @@
+/* pages/order/muiltPay/muiltPay.wxss */
+/* page{
+  background: #F7F8FA;
+} */
+.muiltPay_title{
+  font-size:64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:64rpx;
+  padding: 0 40rpx;
+}
+.payInfo{
+  width: 670rpx;
+  margin: 38rpx 40rpx 50rpx 40rpx;
+  box-sizing: border-box;
+  background: #ffffff;
+  height:499rpx;
+  background:rgba(255,255,255,1);
+  font-size: 0;
+}
+.payInfo_title{
+  line-height: 26rpx;
+  height:26rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  padding-top: 39rpx;
+}
+.top{
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.payInfo text{
+  width: 100%;
+  line-height: 26rpx;
+  height:26rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.circle{
+  height: 80rpx;
+  width: 670rpx;
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+}
+.circle .left{
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: -40rpx;
+  background: #ffffff;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24) inset;
+}
+.circle .right{
+  height: 80rpx;
+  width: 80rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: -40rpx;
+  background: #ffffff;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24) inset;
+}
+.circle .middle{
+  display: inline-block;
+  width: 100%;
+  height: 0;
+  border-bottom: 2rpx dashed #EAF0F0;
+  margin-top: 40rpx;
+}
+.section{
+  position: relative;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:36rpx;
+  padding: 39rpx 40rpx 40rpx 40rpx;
+}
+.section::after{
+  clear: both;
+  display: block;
+  content: '';
+}
+.section input{
+  width: 100%;
+  padding-left:50rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  box-sizing: border-box; 
+  border-bottom: 1px solid #F3F3F3;
+}
+.mark{
+  position: absolute;
+  top: 61rpx;
+  left: 40rpx;
+  font-size: 28rpx;
+}
+.payItem{
+  width: 670rpx;
+  background: #ffffff;
+  margin: 50rpx 40rpx 0 40rpx;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.payItem .item{
+  height: 90rpx;
+  line-height: 90rpx;
+  margin: 0rpx 28rpx 0rpx 48rpx;
+  font-size: 26rpx;
+  border-bottom: 1rpx solid #F3F3F3;
+}
+.payItem .item .left{
+  float: left;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(107,107,107,1);
+}
+.payItem .item .right{
+  float: right;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(107,107,107,1);
+}
+.bottom{
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+  padding-bottom: 50rpx;
+}
+.goPay{
+  width:590rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  color: #ffffff;
+  font-size: 36rpx;
+  background-color: #191919;
+  margin: 0 40rpx;
+}

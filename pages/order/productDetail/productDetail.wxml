@@ -1,0 +1,120 @@
+<view class='container'>
+  <swiper
+      class='swipper'
+      interval="{{interval}}"
+      duration="{{duration}}"
+      current='{{ current }}'
+      bindchange='changeCurrent'
+    >
+    <block  wx:for='{{ nowObj.goodsImagesArr }}' wx:key='{{ index }}'>
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" mode='aspectFit'/>
+        <view class='productMask'></view>
+      </swiper-item>
+      </block>
+  </swiper>
+  <view class='swipperNum'><text>{{ current+1 }}</text><text>/{{ nowObj.goodsImagesArr.length }}</text></view>
+
+  <!--商品详情-->
+  <view class='productInfo'>
+    <view class='name'>{{ nowObj.goodsName }}</view>
+    <view class='price'>￥{{ nowObj.unitPrice }}</view>
+    <view class='line'></view>  
+
+    <view class='attribute'>
+      <text>属性：</text>
+      <text class='selectAttr'>{{ (nowObj.goodsColorArr || nowObj.specificationsArr || nowObj.materialArr) ? '已选 ' : '' }}{{ nowObj.specifications+','+nowObj.goodsColor+','+nowObj.material }}</text>
+      <!-- <view class='more' bindtap='changeAttr'><image src='/img/more.png' ></image></view> -->
+    </view>
+    <view class='line'></view>  
+
+    <view class='attribute'>
+      <text>参数：</text>
+      <text class='selectAttr'>品牌,编号…</text>
+      <view class='more' bindtap='lookInfo'><image src='/img/more.png'></image></view>
+    </view>
+    <view class='line'></view>  
+
+    <view class='server'>
+      <text>服务：</text>
+      <view class='item' style='margin-left:0rpx;'>
+        <image src='/img/serverIco.png'></image>
+        <text>正品保证</text>
+      </view>
+      <view class='item'>
+        <image src='/img/serverIco.png'></image>
+        <text>免费安装</text>
+      </view>
+      <view class='item'>
+        <image src='/img/serverIco.png'></image>
+        <text>45天发货</text>
+      </view>
+    </view>
+  </view>
+
+  <!--右侧颜色材质筛选-->
+  <view class='rightWindow' hidden='{{ changeOthersFlag }}'>
+    <view class='scroll_box'>
+      <view style="padding:50rpx 40rpx 140rpx 50rpx;">
+        <view class='top'>
+          <view class='left'>
+            <image src='{{ othersObj.goodsImages }}'></image>
+          </view>
+          <view class='right'>
+            <text>{{ othersObj.goodsName }}</text>
+            <text>￥{{ othersObj.unitPrice }}</text>
+          </view>
+        </view>
+
+        <view class='window_title'>规格</view>
+        <view class='material_list'>
+          <view class='material_item {{ index==others[0] ? "active" : "" }}' wx:for='{{ othersObj.specificaList }}' wx:key='{{ index }}' bindtap='changeSelectTap' data-index='{{ index }}' data-otherIndex='0'><image src='/img/check_select.png' wx:if='{{ index==others[0] }}' class='selectMaterial'></image>{{ item.specifications }}</view>
+        </view>  
+        <view class='line'></view>
+
+        <view class='window_title'>颜色</view>
+        <view class='color_list'>
+          <view class='color_item {{ index==others[1] ? "active" : "" }}' wx:for='{{ othersObj.colorList }}' wx:key='{{ index }}' bindtap='changeSelectTap' data-index='{{ index }}' data-otherIndex='1'><image src='/img/sjFlag.png' wx:if='{{ index==others[1] }}'></image>{{ item.goodsColor }}</view>
+        </view>  
+        <view class='line'></view>
+
+        <view class='window_title'>材质</view>
+        <view class='color_list'>
+          <view class='color_item {{ index==others[2] ? "active" : "" }}' wx:for='{{ othersObj.materialList }}' wx:key='{{ index }}' bindtap='changeSelectTap' data-index='{{ index }}' data-otherIndex='2'><image src='/img/sjFlag.png' wx:if='{{ index==others[2] }}'></image>{{ item.material }}</view>
+        </view>
+      </view>
+      <!--按钮-->
+      <view class='rightBtn'>
+        <!-- <button class='reset' bindtap='resetSelect'>
+          <image src='/img/refresh.png'></image>
+          重置
+        </button> -->
+        <button class='commit' bindtap='commitSelect'>确定</button>
+      </view>
+    </view>
+  </view>
+
+  <!--右侧参数查看-->
+  <view class='lookInfo' hidden='{{ lookFlag }}'>
+    <view class='lookTitle'>产品参数</view>
+    <!--参数列表-->
+    <view class='lookList'>
+      <view class='lookItem'>
+        <view class='itemTitle'>品牌</view>
+        <view class='itemDiscription'>{{ nowObj.brandName }}</view>
+      </view>
+
+      <view class='lookItem'>
+        <view class='itemTitle'>编号</view>
+        <view class='itemDiscription'>{{ nowObj.goodsCode }}</view>
+      </view>
+
+      <view class='lookItem'>
+        <view class='itemTitle'>单位</view>
+        <view class='itemDiscription'>{{ nowObj.units }}</view>
+      </view>
+    </view>
+  </view>
+  <!--遮罩层-->
+  <view class='mask' hidden='{{ maskFlag }}' bindtap='closeMask'></view>
+</view>

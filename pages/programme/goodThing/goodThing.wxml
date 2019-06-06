@@ -1,0 +1,62 @@
+<view class='good_thing'>
+  <view class='good_title'>好物</view>
+  <view class='good_first' wx:if="{{goodsList.length>0}}">
+    <view class='first_title'>{{first_title}}</view>
+    <view class='good_swiper'>
+      <swiper previous-margin='85rpx' next-margin='85rpx' current='{{currentId}}' bindchange='swiperChange'>
+        <block wx:for="{{goodsList}}" wx:key='index'>
+          <swiper-item class='good_item'>
+            <view bindtap='goodThing' class='animateStyle' data-index='{{index}}' style="transform:{{currentId == index ? 'scale(1)' : 'scale(0.87)'}};transition:all .5s ease 0s;">
+              <image class='good_top' src='/img/goodThing.png'></image>
+              <!-- <view class='good_floor_img' style='background:url("http://images.wojiali.cn/goodsBg.png") no-repeat;background-size:100%'> -->
+              <view class='good_warpper'>
+                <image class='good_floor_img' mode='aspectFit' src='http://images.wojiali.cn/goodsBg.png-thumbnail'></image>
+                <image mode='aspectFit' src="{{item.goodsImageList[0]}}-thumbnail" class="slide-image good_floor" width="355" height="150" />
+              </view>
+
+              <!-- </view> -->
+              <view class='good_item_title'>{{item.goodsName}}</view>
+              <view class='good_item_price'><text style='font-size:24rpx'>￥</text>{{item.priceFloor}}</view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!-- 重置小圓點的樣式 -->
+      <!-- <view class="dots">  
+        <block wx:for="{{goodsList}}" wx:key='index'>  
+            <view class="dot{{index == currentIndex ? ' active' : ''}}"></view>  
+        </block>  
+    </view>  -->
+    </view>
+  </view>
+  <view class='second' wx:if="{{houseModelList.length>0}}">
+    <view class='second_title'>{{second_title}}</view>
+    <view class='second_content' wx:for='{{houseModelList}}' wx:key='index'>
+      <!-- 图片效果 -->
+      <view class='xin'>
+        <view class="xin-list" bindtouchend="moveItem" bindtouchstart="moveStart" data-index='{{index}}' bindtap='goodThing1'>
+          <block wx:for="{{item.goodsImageList}}" wx:key="key" wx:for-item="idx" wx:if='{{idx.coverPic}}'>
+            <view class="single {{item.goodsImageList.length == 1 ? 'oneStyle' : ''}}" style="opacity:{{idx.display}};transform: translateX({{idx.slateX}}) scale({{idx.scale}});z-index:{{idx.zIndex}};transform-origin: 100% 50% 0;{{idx.style}}">
+              <!-- <image class='houseType_shade' src='/img/Housetype_zhezhao.png'></image> -->
+              <image mode="aspectFit" class='houseType_img' src='{{idx.coverPic}}-thumbnail'></image>
+              <!-- <view class='list_title'>{{idx.styleName}}</view>
+                <view class='list_content'>{{idx.details}}</view> -->
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class='xin_content'>
+        <view class='xin_first'>
+          <view class='xin_title'>{{item.goodsName}}</view>
+          <view class='xin_price'>￥{{item.priceFloor}}</view>
+        </view>
+        <view class='xin_sub_title'>{{item.subtitle}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 没数据时的显示 -->
+  <view class='leadPage' wx:if="{{goodsList.length==0 && houseModelList.length==0}}">
+    <image src='/img/goodThingLead.png'></image>
+    <view class='leadContent'>暂时没有上架商品</view>
+  </view>
+</view>

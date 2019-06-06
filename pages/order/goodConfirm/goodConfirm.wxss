@@ -1,0 +1,351 @@
+page{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 40rpx;
+  padding-top: 0rpx;
+}
+.title{
+  width: 100%;
+  font-size:64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-top: 10rpx;
+}
+.orderInfo{
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 30rpx;
+}
+.addressEmpty text{
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.addAddress{
+  width: 100%;
+  height: 74rpx;
+  line-height: 74rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.addAddress image{
+  float: right;
+  width:20rpx;
+  height:30rpx;
+  margin-top: 22rpx;
+}
+.addAddress::after{
+  content:'';
+  clear: both;
+}
+.line{
+  width: 100%;
+  height: 2rpx;
+  background:rgba(234,240,240,1);
+}
+.orderInfo .top{
+  width: 100%;
+  padding: 40rpx;
+  padding-bottom: 20rpx;
+  box-sizing: border-box;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.readBook {
+  margin-top: 34rpx;
+}
+.readBook image{
+  display: block;
+  float: left;
+  width: 36rpx;
+  height: 36rpx;
+}
+.readBook text{
+  margin-left: 24rpx;
+  display: block;
+  float: left;
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(52,52,52,1);
+}
+.circle{
+  background: #ffffff;
+  width: 100%;
+  height: 80rpx;
+  position: relative;
+  overflow: hidden;
+}
+.circle .left{
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  top: 0rpx;
+  left: -40rpx;
+  background: #ffffff;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24) inset;
+}
+.circle .right{
+  background: #ffffff;
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  top: 0rpx;
+  right: -40rpx;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24) inset;
+}
+.circle_line{
+  width: 100%;
+  height:0rpx;
+  border-top:2rpx dashed rgba(234,240,240,1);
+  margin-top: 40rpx;
+}
+.productList{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.productList .box{
+  margin-top: 40rpx;
+}
+.productList .box:first-child{
+  margin-top: 0rpx;
+}
+.location{
+  width: 100%;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(52,52,52,1);
+}
+.box .productItem{
+  width: 100%;
+  margin-top: 50rpx;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+}
+.box .imageBox{
+  position: relative;
+  width:180rpx;
+  height:150rpx;
+  border-radius:10rpx;
+}
+.productImgMask{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 90;
+  width: 180rpx;
+  height: 150rpx;
+  background:rgba(68,68,68,1);
+  opacity:0.06;
+  border-radius:10rpx;
+}
+.productItem image{
+  width:180rpx;
+  height:150rpx;
+}
+.productItem .info{
+  width: 380rpx;
+  margin-left: 30rpx;
+  flex-grow:1;
+}
+.productItem .info_box{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 6rpx;
+}
+
+.productItem .info .name{
+  width: 200rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.productItem .info .price text{
+  font-size: 24rpx;
+}
+.productItem .info .price{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.attr{
+  width: 100%;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.info_box.attr view:first-child{
+  width: 300rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+/* .info_box.attr view:last-child{
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold; */
+  /* font-weight:bold; */
+  /* color:rgba(25,25,25,1); */
+/* } */
+
+.box .line{
+  margin-top: 50rpx;
+}
+.bottom{
+  width: 100%;
+  padding: 20rpx 40rpx;
+  box-sizing: border-box;
+  box-shadow:0px 5rpx 27rpx 0px rgba(84,96,95,0.24);
+}
+.totalPrice{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(52,52,52,1);
+}
+.totalPrice view:last-child{
+  font-size:34rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.totalPrice text{
+  font-size: 28rpx;
+}
+.del{
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  font-size:24rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.finallyPrice{
+  width: 100%;
+  display: flex;
+  flex-direction: row; 
+  justify-content: space-between;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-top: 30rpx;
+}
+.btn button{
+  width:100%;
+  height:100rpx;
+  line-height: 100rpx;
+  background:rgba(25,25,25,1);
+  border-radius:6rpx;
+  margin-top: 50rpx;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(255,254,254,1);
+}
+.bottom_img{
+  border-bottom-left-radius: 10rpx;
+  border-bottom-right-radius: 10rpx;
+  overflow: hidden;
+  background: linear-gradient(rgba(84,96,95,0.07), rgba(84,96,95,0.01)); /* 标准的语法 */
+}
+.bottom_img image{
+  display: block;
+  width: 100%;
+  height: 30rpx;
+}
+.addressInfo{
+  position: relative;
+  padding-bottom: 40rpx;
+}
+.addressInfo .userName{
+  width: 100%;
+  font-size:32rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.addressInfo  .address{
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  width: 500rpx;
+  color:rgba(107,107,107,1);
+  margin-top: 36rpx;
+}
+.addressInfo  .address image{
+  position: absolute;
+  width:30rpx;
+  height:30rpx;
+  top:84rpx;
+  right: 0rpx;
+}
+/*主容器*/  
+.stepper {  
+    width: 147rpx;  
+    height: 40rpx;  
+    /*给主容器设一个边框*/  
+    border-radius: 2rpx;
+}  
+  
+/*加号和减号*/  
+.stepper .stepper_text {  
+    width:40rpx;
+    height: 40rpx;
+    line-height: 40rpx;  
+    text-align: center;  
+    float: left; 
+    background-color: rgba(234,240,240,1);
+    border-radius: 2rpx;
+}  
+  
+/*数值*/  
+.stepper text:nth-child(2) {  
+    width: 67rpx;  
+    height: 39rpx;  
+    min-height: 0rpx;
+    float: left;    
+    text-align: center;  
+    font-size:26rpx;
+    font-family:PingFang-SC-Bold;
+    font-weight:bold;
+    color:rgba(25,25,25,1);
+    padding: 0;
+    margin: 0;
+}  
+  
+/*普通样式*/  
+.stepper .normal{  
+    color: black;  
+}  
+  
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}  

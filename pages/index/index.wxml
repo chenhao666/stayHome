@@ -1,0 +1,129 @@
+<!--首页-->
+<view class='container'>
+<!-- 顶部天气信息 -->
+<view class="header_first {{scrollFlag ? 'header_first_active':''}}">
+    <view class="header_time {{scrollFlag ? 'header_time_active':''}}">{{greetMessage}}</view>
+    <image mode="aspectFill" class="header_img {{scrollFlag ? 'header_img_active':''}}" src='/img/home_Message.png' bindtap='jumpChat'></image>
+</view>
+ 
+ <view class="{{scrollFlag ? 'header':''}}">
+  <view class='header_second'>
+    <view class='header_second_view' bindtap='jumpCity'>
+      <image class='weather_img' src='/img/index_pull.png'></image>
+      <text style='margin-left:36rpx;'>{{cityname}}</text>
+    </view> 
+    <image src='{{weather.weaPng}}' class='weather'></image>
+    <text>{{weather.weather}} {{weather.rature}}</text> 
+  </view>
+  <!-- 轮播图 -->
+  <swiper
+    autoplay="true"
+    current="{{current}}
+    bindchange='swiperChange'
+    circular='true'
+    class='swiper'
+  >
+    <block wx:for="{{imgUrls}}" wx:key='index'>
+      <swiper-item>
+        <view class='imgItem'>
+          <image class='imgItemImg' mode="aspectFill" src="{{item.bannerImg}}-slim" bindtap='bannerTap' data-index='{{ index }}'  data-type='{{ item.type }}'/>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+   <!--重置小圆点的样式  -->
+    <view class="dots">  
+        <block wx:for="{{imgUrls}}" wx:key='index'>  
+            <view class="dot{{index == currentSwiper ? ' active' : ''}}"></view>  
+        </block>  
+    </view>  
+ </view>
+ <!-- 你家在哪? -->
+ <view class='home' wx:if='{{homeList.length>0}}'>
+  <view class='home_title' bindtap='show_more'>你家在哪儿？</view>
+  <view class='home_content'>
+    <scroll-view scroll-x class="scroll-header">
+      <view wx:for="{{homeList}}" class="scroll-view-item header_item"  bindtap='homeDeatal' wx:key='index' data-index='{{index}}'>
+        <view class='content_item'>
+          <image mode="aspectFill" class='content_img' src='{{item.coverPic}}-thumbnail'></image>
+          <image class='content_shade' src='/img/content_shade.png'></image>
+          <view class='item_message'>
+            <view class='content_title'>{{item.houseName}}</view>
+            <view class='content_address'>{{item.address}}</view>
+          </view>
+        </view>
+      </view>
+      <view class='show_more scroll-view-item'>
+        <view class='more'>
+          <view class='more_content' bindtap='show_more'>
+            <view class='show_more_content'>查看更多</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    
+  </view>
+ </view>
+<!-- 风格派 -->
+<view class='style'>
+  <view class='style_title home_title' bindtap='jumpStylePai'>风格派</view>
+  <view class='style_content'>
+    <view class='styleContent'>
+    
+       <!-- 与众不同显示 -->
+      <view class='style_item {{ item.stylePaiCode == "unusual"?"style_unusual":"" }}' wx:for='{{stylePaiList}}' wx:key='index' bindtap='jumpInfo' data-index="{{index}}">
+        <image mode="aspectFill" class='style_image' src='{{item.homePagePic}}-thumbnail'></image>
+        <image class='style_shade' src='/img/style_shade.png'></image>
+        <view class='style_name'>{{item.designName}}</view>
+      </view>
+    </view>
+   
+    <view class='style_more'>
+      <view class='style_show' bindtap='jumpStylePai'>
+        <view class='show_content'>查看更多</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 窝给你选 -->
+<view class='select' wx:if='{{goodsList.length>0}}'>
+  <view class='home_title select_title' bindtap='show_more_home'>
+    <view class='select_name'>窝给你选</view>
+    <view class='select_num'>
+      <text class='select_first'>{{currentIndex}}</text>
+      <text class='select_second'>/{{totalNum}}</text>
+    </view>
+  </view>
+  <view class='select_content'>
+    <scroll-view scroll-x class="select_header" bindscroll='bindscroll'>
+      <view class='scroll-view-item' wx:for="{{goodsList}}" wx:key='index'>
+        <view class='select_item' bindtap='goodThing' data-index='{{index}}'>
+          <image mode='aspectFit' class='select_img' src='{{item.goodsImageList[0]}}-thumbnail'></image>
+          <view class='select_message'>{{item.goodsName}}</view>
+          <!-- <image class='select_shade' src='/img/select_shade.png'></image> -->
+        </view>
+      </view>
+       <view class='home_show_more scroll-view-item' bindtap='show_more_home'>
+        <view class='more'>
+          <view class='more_content'>
+            <view class='show_more_content'>查看更多</view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- <view class='video' style="display:{{videoShow}};height:{{height+'rpx'}}" bindtap='videoHidden'>
+  </view>
+   <video
+    style="display:{{videoShow}};bottom:{{height/2+'rpx'}}"
+      id="myVideo"
+      src="{{url}}"
+      controls
+      autoplay
+    ></video> -->
+</view>
+
+
+
+</view>

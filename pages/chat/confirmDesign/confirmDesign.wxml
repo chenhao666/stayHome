@@ -1,0 +1,4 @@
+<view class='container'>
+  <image src='/img/designBg.png' style='height:{{ clientHeight }}px'></image>
+  <view class='goChat' bindtap='goChat'></view>
+</view>

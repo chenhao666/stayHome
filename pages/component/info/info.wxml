@@ -1,0 +1,6 @@
+<!--pages/component/info/info.wxml-->
+<view class='container'>
+  <view class='img'>
+    <image src='/img/banner.gif'></image>
+  </view>
+</view>

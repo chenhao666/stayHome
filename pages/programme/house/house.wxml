@@ -1,0 +1,97 @@
+<view class="contain" style="height:{{screenHeight}};overflow:hidden">
+  <view class='contain_title'>
+    <view class='contain_left' bindtap='openDown'>
+      <text class='house_select'>户型选择</text>
+      <image class='house_img' src='/img/houseSelect.png'></image>
+    </view>
+    <view class='contain_right'>{{houseName}}</view>
+  </view>
+
+  <view wx:if="{{houseModelList.length>0}}">
+    <view class='warpper' class='houseModelList' wx:for='{{houseModelList}}' wx:key='index'>
+      <view class='houseModelList_item' bindtap='jumpProduct' data-index='{{index}}' style='z-index:-1'>
+        <view class='hosueModelBr'></view>
+        <!-- 户型内容部分 -->
+        <view class='house_model'>
+          <view class='first_floor'>
+            <!-- 左边的部分 -->
+            <view class='first_left'>
+              <view class='left_title'>{{item.houseTypeName}}</view>
+              <view class='left_style'>
+                <text class='style'>{{item.houseModel}}</text>
+                <text class='area'>{{item.houseArea}}m²</text>
+              </view>
+            </view>
+            <!-- 右边的部分 -->
+            <view class='first_right' catchtap='previewImg' data-index='{{index}}'>
+              <image mode="aspectFill" class='show_big' src='{{item.houseModelUrl}}-thumbnail'></image>
+              <view class='image_shade'></view>
+              <view class='shade_word'>查看大图</view>
+            </view>
+          </view>
+        </view>
+        <!-- 图片效果 -->
+        <view class='xin'>
+          <view class="xin-list" bindtouchend="moveItem" bindtouchstart="moveStart" data-index='{{index}}'>
+            <block wx:for="{{item.designInfos}}" wx:key="key" wx:for-item="idx" wx:if='{{idx.coverPic}}'>
+              <view class="single" style="opacity:{{idx.display}};transform: translateX({{idx.slateX}}) scale({{idx.scale}});z-index:{{idx.zIndex}};transform-origin: 100% 50% 0;{{idx.style}}">
+                <image mode="aspectFill" class='houseType_shade' src='/img/Housetype_zhezhao.png'></image>
+                <image mode="aspectFill" class='houseType_img' src='{{idx.coverPic}}-thumbnail'></image>
+                <view class='list_title'>{{idx.styleName}}</view>
+                <view class='list_content'>{{idx.details}}</view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+      <!-- 提示的内容 -->
+      <view class='lead_warpper'>
+       <view class='leadFirrstContent' hidden='{{leadContent}}'>
+        没找到您的户型？<text class='active' bindtap='goShow'>点击这里</text>与设计师沟通，个性化定制您的家
+      </view>
+      </view>
+  </view>
+
+  <view class="noData" wx:else>
+    <image src='/img/houseType.png'></image>
+    <view>暂无符合条件的户型</view>
+  </view>
+  <!-- 这是一个遮罩 -->
+  <view class="{{test == 'test1' ? 'shade': ''}}" bindtap='closeMenue' style='display:{{yesorno}}'></view>
+  <!-- 下拉框内容 -->
+  <view class="downMenu {{test == 'test1' ? 'test1': 'test2'}}">
+    <scroll-view class='scroll_view' scroll-y style="max-height:{{Height}}rpx">
+      <view class='domwn-warper'>
+        <!-- 面积 -->
+        <view class='area_title'>面积</view>
+        <view class='areaList'>
+          <view class="area_conent {{areaIndex===index?'area_active':''}}" wx:for='{{areaList}}' data-aindex='{{index}}' bindtap='areaSelect' wx:key='index'>
+            <image mode="aspectFill" src='/img/HouseTypeMenu.png' class="houseSelectImgTest {{areaIndex===index?'houseSelectImg':''}}"></image>
+            {{item}}m²
+          </view>
+        </view>
+        <!-- 居室 -->
+        <view class='area_title houseList'>居室</view>
+        <view class='areaList'>
+          <view class="style_content {{styleIndex===index?'area_active':''}}" wx:for='{{typeNameList}}' data-bindex='{{index}}' bindtap='styleSelect' wx:key='index'>
+            <image mode="aspectFill" src='/img/HouseTypeMenu.png' class="houseSelectImgTest {{styleIndex===index?'houseSelectImg':''}}"></image>
+            {{item}}
+          </view>
+        </view>
+      </view>
+      <!-- 按钮 -->
+
+    </scroll-view>
+    <view class='button_style'>
+      <view class='button_first' bindtap='reset'>
+        <image mode="aspectFill" class='button_first_img' src='/img/again.png'></image>
+        <!-- <view style=" display: inline-block;width: 36rpx; height: 36rpx;background-color: #fff;-webkit-mask: url('{{buttonImg}}') no-repeat;mask: url('{{buttonImg}}') no-repeat;-webkit-mask-size: 100% 100%; mask-size: 100% 100%"></view> -->
+        <text>重置</text>
+      </view>
+      <view class='button_second' bindtap='getData'>
+        <text>确定</text>
+      </view>
+    </view>
+  </view>
+</view>

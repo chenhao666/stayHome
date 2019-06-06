@@ -1,0 +1,103 @@
+<!--确认订单-->
+<view class='container'>
+  <view class='title'>确认订单</view>
+
+  <!--订单-->
+  <view class='orderInfo'>
+    <view class='top'>
+      <view class='addressEmpty' wx:if='{{ !addressFlag }}' bindtap='selectAddress'>
+        <text>您需要我们送到哪里？</text>
+        <view class='addAddress'>添加收货地址
+          <image src='/img/next.png'></image>
+        </view>
+      </view>
+
+      <view class='addressInfo' wx:if='{{ addressFlag }}' bindtap='selectAddress'>
+        <view class='userName'>收件人：{{ addressData.linkman }} {{ addressData.mobileNum }}</view>
+        <view class='address'>
+          收件地址：{{ addressData.province+addressData.city+addressData.distincts+ addressData.address }}
+          <image src='/img/next.png'></image>
+        </view>
+      </view>
+
+      <view class='line'></view>
+
+      <view class='readBook'>
+        <image src='{{ checkAgreementFlag ? "/img/check_select.png" : "/img/check_btn.png" }}' bindtap='checkAgreement'></image>
+        <text bindtap='goArticle'>我已阅读并同意《购买协议》</text>
+        <view class='clear'></view>
+      </view>
+    </view>
+    <view class='circle'>
+      <view class='left'></view>
+      <view class='right'></view>
+      <view class='circle_line'></view>
+    </view>
+
+    <!--商品列表-->
+    <view class='productList'>
+      <!--商品-->
+      <view class='box'>
+        <view class='location'>{{ totalData.productDetail.goodsName }}</view>
+        <view class='productItem'>
+          <view class='imageBox'>
+            <image src='{{ totalData.productDetail.goodsImageList[0] }}' mode='aspectFit'></image>
+            <view class='productImgMask'></view>
+          </view>
+          <view class='info'>
+            <view class='attr'>规格：{{ totalData.selectData.specifications }}</view>
+            <view class='attr'>材质：{{ totalData.selectData.material }}</view>
+            <view class='info_box attr'>
+              <view>颜色：{{ totalData.selectData.goodsColor }}</view>
+            </view>
+            <view class='info_box'>
+              <view class='stepper'>
+                <!-- 减号 -->
+                <text class="stepper_text {{minusStatus}}" bindtap="bindMinus">-</text>
+                <!-- 数值 -->
+                <text bindchange="bindManual">{{num}}</text>
+                <!-- <input type="number" bindchange="bindManual" value="{{num}}" /> -->
+                <!-- 加号 -->
+                <text class="stepper_text {{maxStatus}}" bindtap="bindPlus">+</text>
+              </view>
+              <view class='price'>
+                <text>￥</text>{{ totalData.selectData.price }}</view>
+            </view>
+          </view>
+          <view class='clear'></view>
+        </view>
+      </view>
+    </view>
+    <!--商品列表结束-->
+
+    <view class='circle'>
+      <view class='left'></view>
+      <view class='right'></view>
+      <view class='circle_line'></view>
+    </view>
+
+    <!--统计-->
+    <view class='bottom'>
+      <view class='totalPrice'>
+        <view>总计</view>
+        <view>
+          <text>￥</text>{{ productPrice }}</view>
+      </view>
+      <!--<view class='del' wx:if='{{ requireData.saleUpdAmout }}'>
+          <text>销售改价</text>
+          <text>￥{{ requireData.saleUpdAmout }}</text>
+        </view>
+        <view class='finallyPrice'>
+          <text style='font-size:26rpx;'>合计</text>
+          <text><text style='font-size:30rpx;'>￥</text>{{ addressData.actualAmount }}</text>
+        </view>-->
+      <view class='btn'>
+        <button bindtap='goPay'>立即购买</button>
+      </view>
+    </view>
+
+    <view class='bottom_img'>
+      <image src='/img/bottom.png'></image>
+    </view>
+  </view>
+</view>

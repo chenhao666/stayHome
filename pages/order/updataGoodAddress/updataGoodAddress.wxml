@@ -1,0 +1,43 @@
+ <view class='add_address'>
+  <view class='add_address_title'>修改收货地址</view>
+  <view class='user_message'>
+    <form bindsubmit='bindFormSubmit'>
+      <view class='message'>
+        <text class='message_title'>收货人</text>
+        <input placeholder-class="phcolor" class='message_value' placeholder='请输入姓名' name='linkman' value='{{requireData.linkman}}'></input> 
+      </view>
+      <view class='message'>
+        <text class='message_title'>联系方式</text>
+        <input placeholder-class="phcolor" class='message_value' placeholder='请输入电话' name='mobileNum' value='{{requireData.mobileNum}}'></input> 
+      </view>
+      <view class='message'>
+        <text class='message_title'>收货地区</text>
+        <!--地区选择器 -->
+           <picker class='message_value' mode="multiSelector" bindchange="bindRegionChange" range-key="{{ 'regionName' }}" bindcolumnchange="bindMultiPickerColumnChange" bindcancel="bindcancel" range="{{ region }}" value="{{multiIndex}}">
+
+          <view class="message_value" wx:if="{{isShow}}">
+            {{region[0][multiIndex[0]].regionName}} {{region[1][multiIndex[1]].regionName}} {{region[2][multiIndex[2]].regionName}}
+          </view>
+
+          <view class="message_default" wx:else bindtap='isShow'>
+           
+            <view class='addPage' wx:if='{{pageStu}}'>
+              <text class='newAdd'>请选择</text>
+              <image src='/img/confirm_right.png'></image>
+            </view>
+            <text class='updata' wx:else>{{requireData.province}} {{requireData.city}} {{requireData.distincts}}</text>
+          </view>  
+        </picker>   
+
+      </view> 
+      <view class='message_last'>
+        <text class='message_last_title'>详细地址</text>
+        <textarea placeholder-class="phcolor" class='address_detail' placeholder='楼、幢、单元号' name='address' value='{{requireData.address}}'></textarea>
+      </view>
+      <view class='btnType'>
+        <button class='btn'  form-type="submit">保存</button>
+      </view>
+    </form>
+  </view>
+
+</view>

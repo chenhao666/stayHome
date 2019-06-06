@@ -1,0 +1,130 @@
+<view class='container'>
+  <!-- 风格派标题 -->
+  <view id='contentHeught'>
+    <view class='container_title'>风格派</view>
+    <view class='style_origin' wx:if='{{unusualList.length>0}}'>
+      <view class='origin_title origin_different'>{{firstName}}</view>
+      <view class='origin_second_title'>帮助你打造一个有趣的家</view>
+      <view class='origin_content'>
+        <scroll-view scroll-x class="scroll-header">
+          <view class="scroll-view-item {{unusualStyle==true?'unusualStyle':''}}" wx:for='{{unusualList}}' wx:key='index' bindtap='jumpInfo' data-index="{{index}}" data-style="unusual">
+            <view class='item_content item_content1'>
+              <view class='first_floor'>
+                <image class='first_left' src="{{item.coverPic}}-thumbnail"></image>
+                <view class='first_right'>
+                  <view class='right_up'>
+                    <image src='{{item.areaPic1}}-thumbnail'></image>
+                    <view class='right_up_title'>{{item.areaPicName1}}</view>
+                  </view>
+                  <view class='right_down'>
+                    <image src='{{item.areaPic2}}-thumbnail'></image>
+                    <view class='right_up_title'>{{item.areaPicName2}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='second_floor'>{{item.designName}}</view>
+              <view class='third_floor'>{{item.details}}</view>
+            </view>
+
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+    <!-- 时尚网红 -->
+    <view class='style_origin style_origin_red ' wx:if='{{internetList.length>0}}'>
+      <view class='origin_title origin_red'>{{secondName}}</view>
+      <view class='origin_second_title'>帮助你打造一个有趣的家</view>
+      <view class='origin_content'>
+        <scroll-view scroll-x class="scroll-header">
+          <view class="scroll-view-item {{internetStyle==true?'internetStyle':''}}" wx:for='{{internetList}}' wx:key='index' bindtap='jumpInfo' data-index="{{index}}" data-style="internetCelebrity">
+            <view class='item_content item_content2'>
+              <view class='first_floor'>
+                <image class='first_left' src='{{item.coverPic}}-thumbnail'></image>
+                <view class='first_right'>
+                  <view class='right_up'>
+                    <image src='{{item.areaPic1}}-thumbnail'></image>
+                    <view class='right_up_title'>{{item.areaPicName1}}</view>
+                  </view>
+                  <view class='right_down'>
+                    <image src='{{item.areaPic2}}-thumbnail'></image>
+                    <view class='right_up_title'>{{item.areaPicName2}}</view>
+                  </view>
+                </view>
+              </view>
+              <view class='second_floor'>{{item.designName}}</view>
+              <view class='third_floor'>{{item.details}}</view>
+            </view>
+
+          </view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{styleList.length>0}}'>
+    <!-- 经典风格 -->
+    <view class='classical'>
+      <view class="classical_warpper {{styleFlag == true ? 'style_list_active' : ''}}">
+        <view class='classical_title' id='classical_title'>{{thirdName}}</view>
+        <view class='style_list_warpper' wx:if='{{programmerList.length>0}}'>
+          <view class="style_list">
+            <scroll-view id='style_list_dec' class='scroll_classical' scroll-x scroll-into-view="{{intoView}}">
+              <view class="scroll-view-item" id='num_{{index}}' bindtap='getStyleId' data-index='{{index}}' wx:for='{{styleList}}' wx:key='index'>
+                <view class="item_name {{currentIndex == index?'item_name_active':''}}">{{item.styleName}}</view>
+              </view>
+            </scroll-view>
+            <image id='scrollTop' class="style_list_dec" src='/img/confirm_right.png' bindtap='jumpLocation'></image>
+          </view>
+        </view>
+      </view>
+
+
+    </view>
+    <!-- 风格模块 -->
+    <swiper class='swiper_box' style='height:{{changeHeight}}px;min-height:{{windowHeight}}px' current='{{currentIndex}}' bindchange='currentChange'>
+      <block wx:for='{{styleList}}' wx:key='index'>
+        <swiper-item>
+        <view wx:if='{{programmerList.length>0}}'>
+        <view id='programmer_item{{index}}'>
+            <view wx:for="{{programmerList}}" wx:key='index' class='list_wapper'>
+              <view class='list_item' bindtap='jumpInfo' data-index="{{index}}">
+                <view class='list_content'>
+                  <image mode='aspectFill' src='{{item.coverPic}}-thumbnail'></image>
+                  <view class='list_name'>{{item.designName}}</view>
+                  <view class='list_info'>{{item.details}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+          
+          <view class='noStyle' wx:else>
+            <image src='/img/noOrder.png'></image>
+            <view>暂时没有方案哦</view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!-- 这是一个遮罩 -->
+  <view class="{{test == 'test1' ? 'shade': ''}}" style='display:{{shadestyle}}' bindtap='closeMenue' catchtouchmove="preventScroll"></view>
+  <!-- 弹窗内容 -->
+  <view class="shadestyle {{test == 'test1' ? 'test1': 'test2'}}" style='display:{{shadestyle}}' catchtouchmove="preventScroll">
+    <view class='dialog_title'>风格派</view>
+    <view class='dialog_sub' bindtap='handleClose'>
+      <view class='sub_title'>经典风格</view>
+      <image class='sub_img' src='/img/confirm_right.png'></image>
+    </view>
+    <view class='dialog_list'>
+      <view class='dialog_item' wx:for='{{styleList}}' wx:key='index' bindtap='getStyleId' data-index="{{index}}">
+        <view class="item {{currentIndex == index? 'item_style' :''}}" style="{{item.styleName.length>3?'font-size:26rpx':'font-size:24rpx'}}">
+          <image src='/img/HouseTypeMenu.png' class="houseSelectImgTest {{currentIndex===index?'houseSelectImg':''}}"></image>
+          {{item.styleName}}</view>
+      </view>
+    </view>
+  </view>
+  <!-- 引导语 -->
+  <view class='styleLead' hidden='{{leadPageFlag}}' wx:if='{{programmerList.length>0}}'>
+    都不喜欢？<text class='styleLeadBtn' bindtap='jumpDessign'>点击这里</text>与设计师沟通，个性化定制您的家
+  </view>
+</view>

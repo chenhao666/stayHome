@@ -1,0 +1,140 @@
+.city_title{
+  font-size:64rpx;
+  line-height: 64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  opacity:0.9;
+  padding-left: 40rpx;
+  padding-bottom: 27rpx;
+  border-bottom: 2rpx solid rgba(234,240,240,1)
+}
+.city_content{
+  padding: 36rpx 40rpx 0;
+}
+.content_title{
+  font-size:26rpx;
+  line-height: 26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  opacity:0.8;
+}
+.city_header{
+  margin-top: 30rpx;
+  overflow: hidden;
+}
+.default_city{
+  float: left;
+  padding: 17rpx 52rpx 18rpx 52rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  opacity:0.9;
+  border:2rpx solid rgba(25,25,25,1);
+  border-radius:2rpx;
+  box-sizing: border-box;
+  height: 60rpx;
+  line-height: 25rpx;
+  position: relative;
+}
+.location{
+  float: left;
+  position: relative;
+  height: 60rpx;
+  margin-left: 40rpx;
+}
+.refresh{
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+.refreshImg{
+  width: 34rpx;
+  height: 34rpx;
+}
+/* .refreshRotete{
+  animation: imgRotate 1.5s linear infinite;
+}
+@keyframes imgRotate{
+   0% {transform: rotate(0deg)}
+  50% {transform: rotate(180deg);}
+  100% {transform: rotate(360deg);}
+} */
+.again{
+  padding-left: 47rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+  opacity:0.9;line-height: 60rpx;
+}
+/* .wrapper { */
+  /* height: 100vh; */
+/* } */
+/* 关闭滚动条  */
+::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.list-search {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 90rpx;
+  padding: 10rpx 30rpx;
+  box-sizing: border-box;
+  z-index: 20;
+  background: #FFF;
+}
+
+.search-title {
+  flex-shrink: 0;
+  font-size: 28rpx;
+  padding-right: 10rpx;
+}
+
+.list-search-box {
+  display: flex;
+  align-items: center;
+  padding: 0 30rpx;
+  width: 100%;
+  height: 70rpx;
+  background: #f5f5f5;
+  border-radius: 90rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.list-search-box input {
+  width: 100%;
+  padding-left: 10rpx;
+}
+
+.search-button {
+  /* width: 100rpx; */
+  flex-shrink: 0;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+.houseSelectImg{
+  display:block;
+  width:8rpx;
+  height:8rpx;
+  opacity:0.9;
+  position:absolute;
+  top:0;
+  left:0;
+
+}

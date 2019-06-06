@@ -1,0 +1,329 @@
+.swipper{
+  width: 100%;
+  height: 462rpx;
+}
+.swipper swipper-item,.swipper image{
+  width: 100%;
+  height: 462rpx;
+}
+.productInfo{
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+.productInfo .name{
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.productInfo .price{
+  margin-top: 30rpx;
+  font-size:28rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-bottom: 30rpx;
+}
+.line{
+  width: 100%;
+  height:2rpx;
+  background:rgba(234,240,240,1);
+}
+.attribute{
+  position: relative;
+  height: 77rpx;
+  line-height: 77rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:bold;
+  color:#191919;
+}
+.attribute text:first-child{
+  color: #6B6B6B;
+}
+.attribute text{
+  display: inline-block;
+  float: left;
+}
+.attribute::after{
+  content:'';
+  clear: both;
+}
+.attribute text:first-child{
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.selectAttr{
+  width: 400rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.more{
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 77rpx;
+}
+.more image{
+  position: absolute;
+  top: 34rpx;
+  right:0rpx;
+  width: 44rpx;
+  height: 8rpx;
+}
+.server{
+  height: 77rpx;
+  line-height: 77rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.server text{
+  float: left;
+}
+.server .item{
+  float: left;
+  height: 77rpx;
+  line-height: 77rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-left: 40rpx;
+}
+.server image{
+  display:block;
+  float: left;
+  width:29rpx;
+  height:29rpx;
+  margin: 0rpx 12rpx;
+  margin-top: 26rpx;
+}
+.server::after{
+  content:'';
+  clear: both;
+}
+.rightWindow{
+  position: fixed;
+  z-index: 99;
+  right: 0rpx;
+  top: 0rpx;
+  width: 580rpx;
+  height: 100%;
+  background: #ffffff;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.rightWindow .top{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.rightWindow image{
+  display: block;
+  width:180rpx;
+  height:150rpx;
+  border-radius:10rpx;
+}
+.rightWindow .right{
+  width: 450rpx;
+  height: 150rpx;
+  margin-left: 30rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.rightWindow .right text:last-child{
+  font-size: 28rpx;
+}
+.rightWindow .window_title{
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  margin-top: 40rpx;
+}
+.rightWindow .material_item{
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  margin-top: 40rpx;
+  color:rgba(107,107,107,1);
+}
+.rightWindow .line{
+  width: 100%;
+  height:2rpx;
+  margin-top: 40rpx;
+  background:rgba(234,240,240,1);
+}
+.color_list{
+  margin-top: 20rpx;
+  display: flex;
+  /*justify-content: space-between;*/
+  flex-wrap:wrap;
+}
+.color_item{
+  margin-left: 10rpx;
+  position: relative;
+  width:150rpx;
+  height:60rpx;
+  border:2rpx solid rgba(0,0,0,0.1);
+  border-radius:2rpx;
+  margin-top: 20rpx;
+  text-align: center;
+  line-height: 60rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.color_list .color_item:nth-child(3n-2){
+  margin-left: 0rpx;
+}
+.color_item.active{
+  border:2rpx solid rgba(0,0,0,0.9);
+}
+.color_item image{
+  position: absolute;
+  width: 16rpx;
+  height: 16rpx;
+  top: -2rpx;
+  left: -2rpx;
+}
+.rightBtn{
+  position: absolute;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.scroll_box{
+  position: relative;
+  min-height: 100%;
+}
+.rightBtn button{
+  width: 100%;
+  position: relative;
+  border-radius: 0rpx;
+}
+.rightBtn .reset image{
+  position: absolute;
+  top: 34rpx;
+  left: 87rpx;
+  width:36rpx;
+  height:34rpx;
+}
+.rightBtn .reset{
+  padding-left: 134rpx;
+  box-sizing: border-box;
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(255,254,254,1);
+  background:rgba(215,220,219,1);
+  text-align: left;
+}
+.rightBtn .commit{
+  background:rgba(0,0,0,1);
+  font-size:36rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(255,254,254,1);
+}
+.material_list .selectMaterial{
+  width: 36rpx;
+  height: 36rpx;
+  float: right;
+}
+.material_list .selectMaterial::after{
+  content: '';
+  clear: both;
+}
+.lookInfo{
+  position: fixed;
+  z-index: 99;
+  right: 0rpx;
+  top: 0rpx;
+  width: 580rpx;
+  height: 100%;
+  padding: 50rpx;
+  background: #ffffff;
+  box-sizing: border-box;
+  overflow: auto;
+}
+.lookTitle{
+  width: 100%;
+  font-size:40rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.lookList{
+  margin-top: 10rpx;
+}
+.lookItem{
+  margin-top: 10rpx;
+  padding: 25rpx 0rpx;
+  border-bottom: 2rpx solid rgba(234,240,240,1);
+}
+.itemTitle{
+  font-size:30rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+}
+.itemDiscription{
+  width: 100%;
+  word-break: break-all;
+  margin-top: 34rpx;
+  font-size:26rpx;
+  font-family:PingFang-SC-Medium;
+  font-weight:500;
+  color:rgba(107,107,107,1);
+}
+.productMask{
+  width:100%;
+  height:500rpx;
+  background:rgba(68,68,68,1);
+  opacity:0.06;
+  position: absolute;
+  top: 0rpx;
+  left: 0rpx;
+  z-index: 90;
+}
+.swipperNum{
+  position: absolute;
+  top: 400rpx;
+  z-index: 91;
+  right: 40rpx;
+  font-size:24rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(0,0,0,1);
+}
+.swipperNum text:first-child{
+  font-size:36rpx;
+}
+.swipperNum text:last-child{
+  opacity:0.9;
+}

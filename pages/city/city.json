@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "list-html": "/pages/component/wx-index-list/wx-index-list"
+  }
+}

@@ -1,0 +1,46 @@
+<view class='container'>
+  <button class='user_info' style="background: url('http://images.wojiali.cn/userBg.png') no-repeat;background-size:100%;" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+    <image src='{{ loginFlag ? userPhoto : "/img/photo.png" }}'></image>
+    <view class='login_header'>
+      <view class='login_login'>{{ loginFlag ? nickName : "点击登录" }}</view>
+      <!-- <view class='login_message'>{{ loginFlag ? '' : "登录后可查看账户详情" }}</view> -->
+    </view>
+    <view style='clear:both'></view>
+  </button>
+  <view class='login_br'></view>
+  <view class='user_item' bindtap='programmeManage'>
+    <image class='login_first' src='/img/login_first.png'></image>
+    <text>我的方案</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+
+  <view class='user_item' bindtap='myOrder'>
+    <image class='login_first' src='/img/login_second.png'></image>
+    <text>我的订单</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+
+  <view class='user_item' bindtap='addressManage'>
+    <image class='login_first' src='/img/login_third.png'></image>
+    <text>地址管理</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+
+  <view class='user_item' bindtap='phoneCall'>
+    <image class='login_first' src='/img/login_fourth.png'></image>
+    <text>联系我们</text>
+    <image src='/img/icon_more.png' class='more'></image>
+    <view class='clear:both'></view>
+  </view>
+  <!--<navigator url="/pages/user/setting/setting">
+    <view class='user_item'>
+      <view class='iconfont icon-shezhi' style='background:#198AC7;'></view>
+      <text>设置</text>
+      <image src='/img/icon_more.png' class='more'></image>
+      <view class='clear:both'></view>
+    </view>
+  </navigator>-->
+</view>

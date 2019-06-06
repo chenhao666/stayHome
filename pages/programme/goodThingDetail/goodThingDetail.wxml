@@ -1,0 +1,146 @@
+<view class='container'>
+  <swiper class='swipper' interval="{{interval}}" duration="{{duration}}" current='{{ current }}' bindchange='changeCurrent'>
+    <block wx:for='{{ productDetail.goodsImageList }}' wx:key='{{ index }}'>
+      <swiper-item>
+        <image src="{{item}}-thumbnail" class="slide-image" mode='aspectFit' />
+        <view class='productMask'></view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class='swipperNum'>
+    <text>{{ current+1 }}</text>
+    <text>/{{ productDetail.goodsImageList.length }}</text>
+  </view>
+
+  <!--商品详情-->
+  <view class='productInfo'>
+    <view class='name'>{{ productDetail.goodsName }}</view>
+    <view class='sub_name' style="{{productDetail.subtitle? '':'display:none'}}">{{ productDetail.subtitle }}</view>
+    <view class='price' style="{{productDetail.subtitle? 'margin-top:29rpx':''}}">{{selectDataFlag ? '￥'+selectData.price : productDetail.priceFloor ==productDetail.priceCap ? '￥'+productDetail.priceFloor : '￥'+productDetail.priceFloor+'-'+'￥'+productDetail.priceCap}}</view>
+    <view class='line'></view>
+
+    <view class='attribute'>
+      <text>属性：</text>
+      <text wx:if='{{!selectDataFlag}}' class='selectAttr'>{{(goodsColorList.length>1 || materialList.length > 1 || specificationList.length > 1)? '请选择 颜色 材质 规格' : goodsColorList[0]+','+materialList[0]+','+specificationList[0] }}</text>
+      <text wx:if='{{selectDataFlag}}' class='selectAttr'>{{selectData.goodsColor+','+selectData.material+','+selectData.specifications}}</text>
+      <view class='more' bindtap='changeAttr'>
+        <image src='/img/more.png'></image>
+      </view>
+    </view>
+    <view class='line'></view>
+
+    <view class='attribute'>
+      <text>参数：</text>
+      <text class='selectAttr'>品牌,编号…</text>
+      <view class='more' bindtap='lookInfo'>
+        <image src='/img/more.png'></image>
+      </view>
+    </view>
+    <view class='line'></view>
+
+    <view class='server'>
+      <text>服务：</text>
+      <view class='item' style='margin-left:0rpx;'>
+        <image src='/img/serverIco.png'></image>
+        <text>正品保证</text>
+      </view>
+      <view class='item'>
+        <image src='/img/serverIco.png'></image>
+        <text>免费安装</text>
+      </view>
+      <view class='item'>
+        <image src='/img/serverIco.png'></image>
+        <text>45天发货</text>
+      </view>
+    </view>
+    <view class='line'></view>
+  </view>
+  <view class='wapper'>
+    <view class='product_info' wx:for='{{prductInfo}}' wx:key='index'>
+        <image src='{{item}}-thumbnail'></image>
+    </view>
+  </view>
+  <view class='custorm' bindtap='messageCustorm'>
+    <image src='/img/Message_Custome_service .png'></image>
+  </view>
+  <view class='goPay' bindtap='goPay'>立即购买</view>
+  <!--右侧颜色材质筛选-->
+  <view class='rightWindow' hidden='{{ changeOthersFlag }}'>
+    <view class='scroll_box'>
+      <view style="padding:50rpx 40rpx 140rpx 50rpx;">
+        <view class='top'>
+          <view class='left'>
+            <image :mode='aspectFit' src='{{ productDetail.goodsImageList[0] }}'></image>
+          </view>
+          <view class='right'>
+            <view>{{ productDetail.goodsName }}</view>
+            <view>{{selectDataFlag ? '￥'+selectData.price : productDetail.priceFloor ==productDetail.priceCap ? '￥'+productDetail.priceFloor : '￥'+productDetail.priceFloor+'-'+'￥'+productDetail.priceCap}}</view>
+          </view>
+        </view>
+
+        <view class='window_title'>规格</view>
+        <view class='material_list'>
+          <view class="material_item {{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? '' : dataMap[item+selectArr[1]+selectArr[2]] ? '':'item_not'}}" wx:for='{{ specificationList }}' wx:key='{{ index }}' catchtap='selectAttr' data-index='{{ index }}'  data-item='{{ item }}'  data-listIndex='{{0}}'>
+            <image src='/img/check_select.png' class="selectMaterial {{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? '' : dataMap[item+selectArr[1]+selectArr[2]] ? selectArr[0] == item ? 'Block':'None' : 'None'}}"></image>{{item}}</view>
+        </view>
+        <view class='line'></view>
+        <view class='window_title'>颜色</view>
+        <view class="color_list">
+          <button class="color_item {{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? '' : dataMap[selectArr[0]+item+selectArr[2]] ? '':'item_not'}} {{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? 'select' : selectArr[1] == item ? 'select':''}}" wx:for='{{ goodsColorList }}'  wx:key='{{ index }}' disabled="{{specificationList.length == 1 && goodsColorList.length == 1 && materialList.length == 1 ? falseFlag : dataMap[selectArr[0]+item+selectArr[2]] ? falseFlag : trueFlag}}" bindtap="selectAttr" data-index='{{ index }}' data-listIndex='{{1}}' data-item='{{ item }}'>
+            <image class="{{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? '' : dataMap[selectArr[0]+item+selectArr[2]] ? selectArr[1] == item ? 'Bolck':'None' : 'None'}}" src='/img/sjFlag.png'></image>{{ item }}</button>
+        </view>
+        <view class='line'></view>
+
+        <view class='window_title'>材质</view>
+        <view class='color_list'>
+          <button class="color_item {{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? '' :dataMap[selectArr[0]+selectArr[1]+item] ? '':'item_not'}} {{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? 'select' : selectArr[2] == item ? 'select':''}}" disabled="{{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? falseFlag :dataMap[selectArr[0]+selectArr[1]+item] ? falseFlag : trueFlag}}" wx:for='{{ materialList }}' wx:key='{{ index }}' bindtap="selectAttr" data-index='{{ index }}' data-listIndex='{{2}}' data-item='{{ item }}'>
+            <image class="{{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1) ? '' : dataMap[selectArr[0]+selectArr[1]+item] ? selectArr[2] == item ? 'Bolck':'None' : 'None'}}" src='/img/sjFlag.png'></image>{{ item }}</button>
+        </view>
+        <view class='line'></view>
+
+        <view class='window_title'>数量</view>
+        <view class='stepper'>
+          <!-- 减号 -->
+          <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+          <!-- 数值 -->
+          <text bindchange="bindManual">{{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1)&&shelvesGoodsDetailList.length==0 ? 0 : num}}</text>
+          <!-- <input type="number" bindchange="bindManual" value="{{num}}" /> -->
+          <!-- 加号 -->
+          <text class="{{(specificationList.length == 1&&goodsColorList.length == 1&&materialList.length == 1)&&shelvesGoodsDetailList.length==0 ? 'disabled':maxStatus}}" bindtap="bindPlus">+</text>
+        </view>
+      </view>
+      <!--按钮-->
+      <view class='rightBtn'>
+        <!-- <button class='reset' bindtap='resetSelect'>
+          <image src='/img/refresh.png'></image>
+          重置
+        </button> -->
+        <button class='commit' bindtap='commitSelect'>确定</button>
+      </view>
+    </view>
+  </view>
+
+  <!--右侧参数查看-->
+  <view class='lookInfo' hidden='{{ lookFlag }}'>
+    <view class='lookTitle'>产品参数</view>
+    <!--参数列表-->
+    <view class='lookList'>
+      <view class='lookItem'>
+        <view class='itemTitle'>品牌</view>
+        <view class='itemDiscription'>{{ productDetail.brandName }}</view>
+      </view>
+
+      <view class='lookItem'>
+        <view class='itemTitle'>编号</view>
+        <view class='itemDiscription'>{{ productDetail.goodsCode }}</view>
+      </view>
+
+      <view class='lookItem'>
+        <view class='itemTitle'>单位</view>
+        <view class='itemDiscription'>{{ units }}</view>
+      </view>
+    </view>
+  </view>
+  <!--遮罩层-->
+  <view class='mask' hidden='{{ maskFlag }}' bindtap='closeMask'></view>
+</view>

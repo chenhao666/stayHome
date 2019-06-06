@@ -1,0 +1,119 @@
+/* page{
+  background-color: #f7f8fa;
+} */
+.add_address_title{
+  font-size:64rpx;
+  font-family:PingFang-SC-Bold;
+  font-weight:bold;
+  color:rgba(25,25,25,1);
+  line-height:64rpx;
+  padding: 0 0 40rpx 26rpx;
+  border-bottom: 2rpx solid rgba(234,240,240,1);
+}
+.user_message{
+  width: 750rpx;
+  background: #ffffff;
+  overflow: hidden;
+}
+.message{
+  height: 100rpx;
+  line-height:100rpx;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  border-bottom: 2rpx solid rgba(234,240,240,1);
+  margin: 0 40rpx;
+}
+
+.message_title{
+  display: inline-block;
+  font-family:PingFang-SC-Bold;
+  font-weight: bold;
+  font-size: 26rpx;
+  color:rgba(25,25,25,1);
+  width: 139rpx;
+  text-align: left;
+}
+.message_value{
+  font-size:26rpx;
+  color: rgba(25,25,25,1);
+  width: 531rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.address_detail{
+  padding-top: 32rpx;
+  height: 120rpx;
+  width: 531rpx;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  line-height: 36rpx;
+}
+.message_last{
+  height: 180rpx;
+  display: flex;
+  justify-content: left;
+  border-bottom: 2rpx solid rgba(234,240,240,1);
+  margin: 0 40rpx;
+}
+.message_last_title{
+   display: inline-block;
+  font-family:PingFang-SC-Bold;
+  font-weight: bold;
+  font-size: 26rpx;
+  color:rgba(25,25,25,1);
+  width: 139rpx;
+  text-align: left;
+  padding-top: 32rpx;
+}
+.message_default{
+  font-size:26rpx;
+  color: #3F3F3F;
+  width: 560rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: right;
+  position: relative;
+}
+.message_default .updata{
+  float: left;
+}
+.message_default .newAdd{
+  margin-right: 100rpx;
+  margin-top: 10rpx;
+}
+.message_default image{
+  width: 23rpx;
+  height: 28rpx;
+  position: absolute;
+  right: 56rpx;
+  top: 33rpx
+}
+.phcolor{
+  font-family: PingFang-SC-Medium;
+  font-weight: Medium;
+  color: #B6B6B6;
+  font-size: 26rpx;
+}
+.btnType{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.btn{
+  height: 100rpx;
+  line-height: 100rpx;
+  color: rgba(255,254,254,1);
+  background: rgba(0,0,0,1);
+  text-align: center;
+  font-family: PingFang-SC-Bold;
+  font-weight: Bold;
+  font-size: 36rpx;
+}
+button{
+  border-radius: 0;
+}

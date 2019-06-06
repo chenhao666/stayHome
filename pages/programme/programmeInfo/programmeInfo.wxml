@@ -1,0 +1,106 @@
+<!--pages/programme/programmeInfo/programmeInfo.wxml-->
+<view class='container'>
+  <view class='block'>
+    <!--头部切换-->
+    <view class='hearder'>
+      <scroll-view  scroll-x class='scrollHeader'>
+        <view wx:for='{{ programmeList }}' class='heard_item {{ index==programmeIndex ? "active" : "" }}' bindtap='changeTabProgramme'  wx:key='{{ index }}' data-index='{{ index }}'>{{ item.designName }}</view>
+      </scroll-view>
+    </view>
+
+    <!--3D图-->
+    <view class='threeDImg'>
+      <!--<navigator url="/pages/programme/showThree/showThree?url={{ programmeList[programmeIndex].threeDurl }}">-->
+        <image src='{{ programmeList[programmeIndex].coverPic }}'></image>
+        <view class='goThreeD' bindtap='goThreeD'>
+          <text>3D</text>
+        </view>
+        <button open-type="share"  class='share'> <image src='/img/share.png'  class='shareImg'></image></button>
+      <!--</navigator>-->
+    </view>
+
+    <!--方案详情-->
+    <view class='programmeInfo'>
+      <view class='programmeTitle'>
+        <view class='name'>全屋家具</view>
+        <view class='price' wx:if='{{ programmeList[programmeIndex].packagePrice }}'><text>￥</text>{{ programmeList[programmeIndex].packagePrice }}</view>
+      </view>
+      <view class='info'>
+        <text>{{ programmeList[programmeIndex].details }}</text>
+      </view>
+    </view>
+  </view> 
+
+  <!--详情-->
+  <view class='block' wx:if='{{ locationList.length>0 }}'>
+    <view class='locationInfo'>
+      <view class='locationTab'>
+        <scroll-view  scroll-x scroll-into-view='{{ intoView }}' class='scrollHeader'>
+          <view wx:for='{{ locationList }}' class='locationItem {{ index==locationIndex ? "active" : "" }}' wx:key='{{ index }}' bindtap='changeTapLocation' data-index='{{ index }}' id='num_{{ item.typeOrder }}'>{{ item.areaTypeName }}</view>
+        </scroll-view>
+      </view>
+    </view>
+
+    <!--滑动切换-->
+      <swiper
+        class="swiper-box"
+        style='height:{{ changeHeight }}px'
+        current='{{ current }}'
+        interval="{{interval}}"
+        duration="{{duration}}"
+        bindchange='changeLocation'
+      >
+        <block wx:for="{{ locationList }}" wx:key='{{ index }}'>
+          <swiper-item>
+            <view id="list_item{{ index }}" class='infoItem'>
+             <!-- <image src='{{ item.coverPic }}'></image>
+              <text class='content'>
+                {{ item.details }}
+              </text>
+              -->
+              <view wx:for='{{ item.templateInfo }}'  wx:for-index="otherIndex" wx:for-item="otherItem" wx:key='{{ otherIndex }}'>
+                <image src='{{ otherItem.coverPic }}-thumbnail'></image>
+                <view class='content'>{{ otherItem.details }}</view>
+              </view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+      <!--指示点-->
+      <view class='indicator_dots' wx:if='{{ locationList.length>1 }}'>
+        <view wx:for='{{ locationList }}' wx:key='{{ index }}' class='dotItem {{ index==locationIndex ? "active" : "" }}'></view>
+      </view>
+      <view class='clear'></view>
+  </view>
+
+  <view class='block' wx:if='{{ styleList.length>0 }}'>
+    <view class='more'>
+      <view class='more_title'>更多风格可选</view>
+      <scroll-view  scroll-x class='scrollMore'>
+        <view wx:for='{{ styleList }}' wx:key='{{ index }}' class='more_item' bindtap='changeTapStyle' data-index='{{ index }}'>
+          <image src='{{ item.coverPic }}-thumbnail'></image>
+          <view class='styleName'>{{ item.styleName }}</view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!--底部浮动-->
+  <view class='footer'>
+    <view class='line'></view>
+    <view class='item item_customer' bindtap='connectCustomer'>
+      <image src='/img/customer.png'></image>
+      <text>客服</text>
+      <view class='clear'></view>
+    </view>
+    <view class='item item_Designer' bindtap='connectDesigner'>
+      <image src='/img/designer.png'></image>
+      <text>设计师</text>
+      <view class='clear'></view>
+    </view>
+    <view class='item'>
+      <button class='goProductList' bindtap='goProductList'>商品列表</button>
+    </view>
+  </view>
+  <!--底部浮动结束-->
+</view>

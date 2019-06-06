@@ -1,0 +1,38 @@
+<view class='myProgramme'>
+  <view class='myProgramme_title'>我的方案</view>
+  <view wx:if='{{notMessage == false}}' style='margin-bottom:75rpx;'>
+    <view class='my_programme' wx:for='{{requireData}}' wx:key='index'>
+      <view class='programe_list'>
+        <!-- <view class='list_time'>
+      <text>{{item.sendTime}}</text>
+    </view> -->
+        <view class='top'>
+          <view class='message_style'>
+            <text class='first'>{{item.houseName}}</text>
+            <text class='message_hr'></text>
+            <text class='second'>{{item.houseModel}}</text>
+            <text class='third'>{{item.styleName}}</text>
+          </view>
+          <view class='programme_img'>
+            <image mode="aspectFill" class='main_img' src="/img/default_small.png"></image>
+          </view>
+          <view class='message'>
+            <!-- <text class='title'>{{item.styleName}}-{{item.desigName}}</text> -->
+            <view class='message_right'>
+              <text class='list' bindtap='programList' data-index="{{index}}">商品列表</text>
+            </view>
+          </view>
+        </view>
+
+        <view class='bottom_img'>
+          <image mode="aspectFill" src='/img/bottom.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='no_address' wx:else>
+    <image src='/img/noPlan.png'></image>
+    <view>暂时没有方案哦</view>
+  </view>
+</view>

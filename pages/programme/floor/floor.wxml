@@ -1,0 +1,69 @@
+<!--楼盘选择-->
+<view class='container'>
+  <view class='floorList'>
+    <!-- <view class='empty' wx:if="{{ floorList.length==0 }}">
+      <image src='/img/houseEmpty.png'></image>
+      <text>暂无楼盘信息</text>
+    </view> -->
+    <view class="floor_head">
+      <view class="contain_title {{focuStyle == true? 'showNone':''}}">楼盘</view>
+      <view class='search_warpper'>
+        <view class="search_first {{animateStyle == true? 'inputFixed':''}}">
+          <!-- 输入框部分 -->
+          <view class="search {{animateStyle == true? 'search_active':''}}">
+          <image class="right_img {{valStyle == true? 'showBlock':''}}" src='/img/input_search01.png' bindtap='clearData'></image>
+            <image class='left_img' src='/img/input_search.png'></image>
+            <input placeholder-class="placeholder_class" placeholder='{{phValue}}' class="input {{animateStyle == true? 'input_head':''}}" bindfocus='getFocus' bindinput='getSearchData' value='{{inputVal}}'></input>
+          </view>
+          <view class="cancel {{animateStyle == true? 'cancel_head':''}}" bindtap='handleCancel'>取消</view>
+          <!-- 分割线 -->
+          <view class="Br {{animateStyle == true? 'brActive':''}}"></view>
+        </view>
+        <!-- <view class=""></view> -->
+      </view>
+
+
+      
+    </view>
+    <!--列表-->
+    <view class="list">
+      <navigator class='navigator' wx:for="{{ floorList }}" wx:key="{{ index }}" url="/pages/programme/house/house?styleId={{ item1.styleId }}&cityname={{ item1.city }}&houseId={{ item1.houseId }}&houseName={{item1.houseName}}" wx:for-item='item1' wx:if="{{ floorList.length>0 }}">
+        <view class='item'>
+          <image mode='aspectFill' class='item-img' src='{{item1.coverPic}}-thumbnail'></image>
+          <view class='discribe_title'>
+            <view class='title'>{{ item1.city }}</view>
+            <view class='address'>{{ item1.houseName }}</view>
+          </view>
+          <view class='discribe_content'>
+            <view class='hot'>
+              <image src='/img/hot.png' class='hot-img'></image>
+              <view class='text'>hot</view>
+            </view>
+            <view wx:for='{{item1.styleList}}' wx:key='{{index}}' class='discribe_style' wx:for-item='item2'>
+              <view class='style_item'>{{item2.styleName}}</view>
+            </view>
+          </view>
+          <view class='discribe_address'>
+            地址：{{item1.address}}
+          </view>
+        </view>
+      </navigator>
+      <!-- 提示的内容 -->
+      <view class='lead_warpper'>
+       <view class='leadFirrstContent' hidden='{{leadContent}}'>
+        没找到您的楼盘？<text class='active' bindtap='goShow'>点击这里</text>查看喜欢的方案，设计师为您个性化改造
+      </view>
+      </view>
+     
+    </view>
+    <!--列表结束-->
+  </view>
+  <!-- 无数据时引导页 -->
+  <view class='leadPage' hidden="{{leadPage}}">
+    <image src='/img/floorLeadPage.png'></image>
+    <view class='leadContent'>我们还没有收录“{{houseName}}”
+您可以查看其他方案，由设计师为您量身设计
+    </view>
+    <view class='goShow' bindtap='goShow'>去查看</view>
+  </view>
+</view>

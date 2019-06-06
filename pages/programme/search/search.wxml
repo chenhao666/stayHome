@@ -1,0 +1,49 @@
+<!--楼盘选择-->
+<view class='container'>
+  <view class='floorList'>
+    <!-- <view class='empty' wx:if="{{ floorList.length==0 }}">
+      <image src='/img/houseEmpty.png'></image>
+      <text>暂无楼盘信息</text>
+    </view> -->
+    <view class="floor_head">
+      <!-- <view class="contain_title">楼盘</view> -->
+      <view class="search_first inputFixed">
+      <!-- 输入框部分 -->
+        <view class="search">
+          <image class='left_img' src='/img/input_search.png'></image>
+          <input placeholder='{{phValue}}' class="input" bindinput='getSearchData' value='{{inputVal}}' focus='true'></input>
+          <image class='right_img' src='/img/input_search01.png' bindtap='clearData'></image>
+        </view>
+        <!-- 分割线 -->
+        <view class="brActive"></view>
+      </view>
+
+      <view class='Br'></view>
+    </view>
+    <!--列表-->
+    <view class="list">
+      <navigator class='navigator' wx:for="{{ floorList }}" wx:key="{{ index }}" url="/pages/programme/house/house?styleId={{ item1.styleId }}&brandId={{ item1.brandId }}&houseId={{ item1.houseId }}" wx:for-item='item1' wx:if="{{ floorList.length>0 }}">
+        <view class='item'>
+          <image class='item-img' src='http://images.wojiali.cn/FtrdZldjP-c1A1OLNduOrohADx9V'></image>
+          <view class='discribe_title'>
+            <view class='title'>{{ item1.houseName }}</view>
+            <view class='address'>{{ item1.houseName }}</view>
+          </view>
+          <view class='discribe_content'>
+            <view class='hot'>
+              <image src='/img/hot.png' class='hot-img'></image>
+              <view class='text'>hot</view>
+            </view>
+            <view wx:for='{{item1.styleList}}' wx:key='{{index}}' class='discribe_style' wx:for-item='item2'>
+              <view class='style_item'>{{item2.styleName}}</view>
+            </view>
+          </view>
+          <view class='discribe_address'>
+            地址：{{item1.address}}
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <!--列表结束-->
+  </view>
+</view>

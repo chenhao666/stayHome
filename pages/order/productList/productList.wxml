@@ -1,0 +1,145 @@
+<view class='container'> 
+  <view class='block'>
+    <view class='title'>商品列表</view>
+    <!--头部切换--> 
+    <view hidden='{{ !flexFlag }}' style='height:80rpx;'></view>
+    <view class='hearder {{ flexFlag ? "flex" : ""}}'>
+      <scroll-view  scroll-x class='scrollHeader'>
+        <view wx:for='{{ locationList }}' class='heard_item {{ index==locationIndex ? "active" : "" }}' wx:key='{{ index }}' bindtap='changeLocation' data-index='{{ index }}'>
+          {{ item.typeName }}
+          <text class='num' wx:if='{{ item.totalNum }}'>{{ item.totalNum }}</text>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+  
+  <!--优惠信息-->
+  <view class='notice {{ flexFlag ? "flex" : ""}}' wx:if='{{ announcementText }}'>
+    <image src='/img/notice.png'></image>
+    <view class='marquee_box'>
+      <view class='marquee' animation="{{animationData}}">
+        <text>{{ announcementText }}</text>
+      </view>
+    </view>
+  </view>
+  <view hidden='{{ !flexFlag }}' style='height:70rpx;'></view>
+  <!--商品列表-->
+  <view class='productList' wx:for='{{ locationList[locationIndex].goodsTypeList }}' wx:key='{{ index }}'>
+    <view class='list_title'>{{ item.goodsType }}</view>
+    <view class='list_box'>
+      <!--商品详情-->
+      <view class='list_item' wx:for='{{ item.goodsInfos }}' wx:for-index="goodsInfoIndex" wx:for-item="goodsInfoItem" wx:key='{{ goodsInfoIndex }}'>
+        <image src='{{ goodsInfoItem.goodsImages }}-thumbnail' class='itemPic' bindtap='showDetail' data-index='{{ index }}' data-childIndex='{{ goodsInfoIndex }}' mode='aspectFit'></image>
+        <view class='productImgMask' bindtap='showDetail' data-index='{{ index }}' data-childIndex='{{ goodsInfoIndex }}'></view>
+        <view class='changePic'  bindtap='changeProduct' data-index='{{ index }}' data-childIndex='{{ goodsInfoIndex }}' wx:if='{{ goodsInfoItem.replaceInfo }}'>
+          <image src='/img/change.png'></image>
+        </view>
+        <view class='checkArea' bindtap='checkProduct' data-index='{{ index }}' data-childIndex='{{ goodsInfoIndex }}'></view>
+        <image src='{{ goodsInfoItem.checked ? "/img/check_select.png" : "/img/check_btn.png" }}' class='checkPic' ></image>
+        <view class='more_box' bindtap='changeOthers' data-index='{{ index }}' data-childIndex='{{ goodsInfoIndex }}' wx:if='{{ goodsInfoItem.specificationsArr ||  goodsInfoItem.materialArr || goodsInfoItem.goodsColorArr }}'>
+          <image src='/img/more.png'  class='list_more'></image>
+        </view>
+        <view class='item_name'>{{ goodsInfoItem.goodsName }}</view>
+        <view class='info_box'>
+          <view class='price'><text>￥</text>{{ goodsInfoItem.unitPrice }}</view>
+          <view class='number'>*{{ goodsInfoItem.goodsNum }}</view>
+        </view>
+        <view class='info'>
+          <view class='info_item'>{{ (goodsInfoItem.specificationsArr || goodsInfoItem.materialArr || goodsInfoItem.goodsColorArr)? '已选规格：' : '规格：'}}{{ goodsInfoItem.specifications }}</view>
+          <view class='info_item'>{{ (goodsInfoItem.specificationsArr || goodsInfoItem.materialArr || goodsInfoItem.goodsColorArr) ? '已选材质：' : '材质：'}}{{ goodsInfoItem.material }}</view>
+          <view class='info_item'>{{ (goodsInfoItem.specificationsArr || goodsInfoItem.materialArr || goodsInfoItem.goodsColorArr) ? '已选颜色：' : '颜色：'}}{{ goodsInfoItem.goodsColor }}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--替换商品列表-->
+  <view class='changeList' hidden='{{ changeFlag }}'>
+    <view class='change_title'>可替换商品</view>
+    <scroll-view  scroll-x class='changeScroll'>
+      <view wx:for='{{ changeList }}' wx:key='{{ index }}' class='change_Item'  bindtap='changeTap' data-index='{{ index }}'>
+        <image src='{{ item.goodsImages }}-thumbnail' mode='aspectFit'></image> 
+        <view class='changeMask'></view>
+        <image src='/img/check_select.png' class='changeSelect' wx:if='{{ item.checked }}'></image>
+        <view class='changeName'>{{ item.goodsName }}</view>
+        <view class='changePrice'>￥{{ item.unitPrice }}</view>
+      </view>
+    </scroll-view>
+    
+    <view class='btn'>
+      <button class='reset' bindtap='resetChange'>
+        <image src='/img/resetBtn.png'></image>
+        重置
+      </button>
+      <button class='commit' bindtap='changeTapCommit'>确定</button>
+    </view>
+  </view>
+  <!--右侧颜色材质筛选-->
+  <view class='rightWindow' hidden='{{ changeOthersFlag }}'>
+    <view class='scroll_box'>
+      <view style="padding:50rpx;padding-bottom:140rpx;">
+        <view class='top'>
+          <view class='left'>
+            <image src='{{ othersObj.goodsImages }}'></image>
+            <view class='rightPicMask'></view>
+          </view>
+          <view class='right'>
+            <view>{{ othersObj.goodsName }}</view>
+            <view><text>￥</text>{{ othersObj.unitPrice }}</view>
+          </view>
+        </view>
+
+        <view class='window_title'>规格</view>
+        <view class='material_list'>
+          <view class='material_item {{ index==others[0] ? "active" : "" }}' wx:for='{{ othersObj.specificaList }}' wx:key='{{ index }}' bindtap='changeSelectTap' data-index='{{ index }}' data-otherIndex='0'><image src='/img/check_select.png' wx:if='{{ index==others[0] }}' class='selectMaterial'></image>{{ item.specifications }}</view>
+        </view>  
+        <view class='line'></view>
+
+        <view class='window_title'>颜色</view>
+        <view class='color_list'>
+          <view class='color_item {{ index==others[1] ? "active" : "" }}' wx:for='{{ othersObj.colorList }}' wx:key='{{ index }}' bindtap='changeSelectTap' data-index='{{ index }}' data-otherIndex='1'><image src='/img/sjFlag.png' wx:if='{{ index==others[1] }}'></image>{{ item.goodsColor }}</view>
+        </view>  
+        <view class='line'></view>
+
+        <view class='window_title'>材质</view>
+        <view class='color_list'>
+          <view class='color_item {{ index==others[2] ? "active" : "" }}' wx:for='{{ othersObj.materialList }}' wx:key='{{ index }}' bindtap='changeSelectTap' data-index='{{ index }}' data-otherIndex='2'><image src='/img/sjFlag.png' wx:if='{{ index==others[2] }}'></image>{{ item.material }}</view>
+        </view>
+      </view>
+      <!--按钮-->
+      <view class='rightBtn'>
+        <button class='reset' bindtap='resetSelect'>
+          <image src='/img/reset.png'></image>
+          重置
+        </button>
+        <button class='commit' bindtap='commitSelect'>确定</button>
+      </view>
+    </view>
+  </view>
+
+  <!--底部-->
+  <view class='footer'>
+    <view class='locationTotal'>
+      <view class='left'>
+        <view class='imagBox' bindtap='selectAll'>
+          <image src='{{ checkAll ? "/img/check_select.png" : "/img/check_btn.png"}}' ></image>
+        </view>
+        <text>全选</text>
+      </view>
+      <view class='right'>{{ locationList[locationIndex].typeName }}：<text style='font-size:24rpx;'>￥</text>{{ locationList[locationIndex].totalPrice || 0 }}</view>
+    </view>
+
+    <view class='footerTotal'>
+      <text>￥{{ totalPrice }}</text>
+      <button class='goOrder' bindtap='goOrder'>结算({{ totalNum }})</button>
+    </view>
+  </view>
+  <view class='custorm' bindtap='messageCustorm'>
+    <image src='/img/Message_Custome_service .png'></image>
+  </view>
+  <!--遮罩层-->
+  <view class='mask' hidden='{{ maskFlag }}' bindtap='closeMask'></view>
+  <!-- 引导页 -->
+  <view class="lead_page {{leadPage ? 'Block':'None'}}">
+    <image mode='widthFix' src='/img/leadPage.png' bindtap='closeImage'></image>
+  </view>
+</view>
